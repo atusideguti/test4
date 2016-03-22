@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html ng-csp>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <script src="js/common.js"></script>    
+    <script src="js/winstore-jscompat.js"></script>
+    <link rel="stylesshet" href="components/monaca-onsenui/js/angular/angular-csp.css">
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+     ons.bootstrap();
+     ons.ready(function(){
+        console.log("スタート");
+        //first_createt_tbl();//DATE作成
+        createt_tbl();
+        getData();//DATE取得
+    });
+        
+    </script>
+</head>
+  <body>
+
+  <ons-page id="main">
+     
+    <ons-tabbar>
+      <ons-tab page="timeline.html" active="true">
+        <ons-icon icon="ion-home" class="tab-icon"></ons-icon>
+      </ons-tab>
+      <ons-tab page="timeline.html">
+        <div class="notification reply-notification" ons-tab-inactive>4</div>
+        <ons-icon icon="ion-at" class="tab-icon"></ons-icon>
+      </ons-tab>
+      <ons-tab page="timeline.html">
+        <ons-icon icon="ion-heart" class="tab-icon"></ons-icon>
+      </ons-tab>
+      <ons-tab page="timeline.html">
+        <ons-icon icon="ion-person" class="tab-icon"></ons-icon>
+      </ons-tab>
+    </ons-tabbar>
+
+    <ons-template id="timeline.html">
+      <ons-page>
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-compose" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">
+            Timeline
+          </div>
+          <div class="right">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-ios-search-strong" fixed-width="false" style="font-size: 26px; vertical-align: -4px;"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        
+        <ons-list class="timeline" modifier="inset" id="main_list">
+          <ons-list-item class="timeline-li" modifier="tappable" >
+            <ons-row>
+              <ons-col width="50px">
+                <img ng-src="img/1.png" class="timeline-image">
+              </ons-col>
+
+              <ons-col>
+                <div class="timeline-date">2016/03/03</div>
+                <div class="timline-from">
+                  <span class="timeline-name">本当は怖いおそ松さん</span>
+                  <span class="timeline-id">@naveまとめ話</span>
+                  <input type="hidden" id="url" value="http://matome.naver.jp/odai/2145456176395655101">
+                </div>
+
+                <div class="timeline-message">
+                  <script>
+                      get_List_Data('1','title');
+                  </script>
+                    <value id="contentsX">おそ松さんの都市伝説まとめ【死後の世界？実は八つ子？</value>
+                </div>
+              </ons-col>
+            </ons-row>
+          </ons-list-item>
+        </ons-list>
+
+      </ons-page>
+    </ons-template>
+  </ons-page>
+  </body>
+</html>
